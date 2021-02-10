@@ -251,9 +251,9 @@ text2 1FF48 1FF49 CODE 1FF48 0
 text3 1FF46 1FF47 CODE 1FF46 0
 text6 1FF44 1FF45 CODE 1FF44 0
 %locals
-dist/default/production\2021_ENCM369.production.o
+dist/default/debug\2021_ENCM369.debug.o
 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
-C:\Users\yrsre\AppData\Local\Temp\s23s.s
+C:\Users\yrsre\AppData\Local\Temp\sjak.s
 5083 1FF5C 0 CODE 0
 5085 1FF5C 0 CODE 0
 5088 1FF5C 0 CODE 0

@@ -92,10 +92,22 @@ Promises:
 - 
 
 */
+#define _XTAL_FREQ 64000000
 void UserAppRun(void)
 {
-
-
+     u8 i ;
+     for(i=0;i<128;i++)
+    {
+          LATA=128+i;
+            __delay_ms(250);
+       
+            if(i>=128)
+        {
+            i=0;
+        }
+    }
+         
+      
 } /* end UserAppRun */
 
 

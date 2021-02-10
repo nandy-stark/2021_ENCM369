@@ -86,9 +86,15 @@ Promises:
 - Output pin for PA31_HEARTBEAT is configured
 
 */
+
 void GpioSetup(void)
 {
-  
+    TRISA=0;
+    LATA= 0;
+    ANSELA=0;
+    RA7=1;
+    
+    
   
 } /* end GpioSetup() */
 
