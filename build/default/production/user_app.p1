@@ -2551,33 +2551,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _UserAppRun ]
 [f ]
 "98
-[; ;user_app.c: 98:      u8 i ;
-[v _i `uc ~T0 @X0 1 a ]
+[; ;user_app.c: 98:      u8 u8counter ;
+[v _u8counter `uc ~T0 @X0 1 a ]
 "99
-[; ;user_app.c: 99:      for(i=0;i<128;i++)
+[; ;user_app.c: 99:      for(u8counter=0;u8counter<128;u8counter++)
 {
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 128 `i 2274  ]
+[e = _u8counter -> -> 0 `i `uc ]
+[e $ < -> _u8counter `i -> 128 `i 2274  ]
 [e $U 2275  ]
 [e :U 2274 ]
 "100
 [; ;user_app.c: 100:     {
 {
 "101
-[; ;user_app.c: 101:           LATA=128+i;
-[e = _LATA -> + -> 128 `i -> _i `i `uc ]
+[; ;user_app.c: 101:           LATA=128+u8counter;
+[e = _LATA -> + -> 128 `i -> _u8counter `i `uc ]
 "102
 [; ;user_app.c: 102:             _delay((unsigned long)((250)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "104
-[; ;user_app.c: 104:             if(i>=128)
-[e $ ! >= -> _i `i -> 128 `i 2277  ]
+[; ;user_app.c: 104:             if(u8counter>=128)
+[e $ ! >= -> _u8counter `i -> 128 `i 2277  ]
 "105
 [; ;user_app.c: 105:         {
 {
 "106
-[; ;user_app.c: 106:             i=0;
-[e = _i -> -> 0 `i `uc ]
+[; ;user_app.c: 106:             u8counter=0;
+[e = _u8counter -> -> 0 `i `uc ]
 "107
 [; ;user_app.c: 107:         }
 }
@@ -2585,8 +2585,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "108
 [; ;user_app.c: 108:     }
 }
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 128 `i 2274  ]
+[e ++ _u8counter -> -> 1 `i `uc ]
+[e $ < -> _u8counter `i -> 128 `i 2274  ]
 [e :U 2275 ]
 }
 "111

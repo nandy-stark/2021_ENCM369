@@ -67,7 +67,7 @@
 [v _UserAppRun UserAppRun `(v  1 e 1 0 ]
 {
 "98
-[v UserAppRun@i i `uc  1 a 1 2 ]
+[v UserAppRun@u8counter u8counter `uc  1 a 1 2 ]
 "111
 } 0
 "76
