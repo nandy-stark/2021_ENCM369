@@ -95,15 +95,20 @@ Promises:
 #define _XTAL_FREQ 64000000
 void UserAppRun(void)
 {
-     u8 u8counter ;
-     for(u8counter=0;u8counter<128;u8counter++)
+     u32 u32counter ;
+     
+     for(u32counter=0;u32counter<128;u32counter++)
     {
-          LATA=128+u8counter;
+         __delay_ms(100);
+         if(RB5==1)
+         {
+          LATA= 128 + u32counter;
             __delay_ms(250);
+         }
        
-            if(u8counter>=128)
+            if(u32counter>=128)
         {
-            u8counter=0;
+            u32counter=0;
         }
     }
          
