@@ -93,6 +93,7 @@ void GpioSetup(void)
     LATA= 0;
     ANSELA=0;
     TRISB=1;
+    LATB=0;
     ANSELB=1;
     RB5=0;
     RA7=1;

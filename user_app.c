@@ -95,16 +95,16 @@ Promises:
 #define _XTAL_FREQ 64000000
 void UserAppRun(void)
 {
-    u32 u32counter;
+    u32 u32Counter;
     u8 u8ButtonLastState = RB5;
     u8 u8Button;
-    for( u32counter = 0x00 ; u32counter <= 0x40 ; u32counter+=0x01) 
+    for( u32Counter = 0x00 ; u32Counter <= 0x40 ; u32Counter+=0x01) 
     {
         u8Button = RB5;
         __delay_ms(100);
         if(u8Button == 0x00 && u8ButtonLastState == 0x01)
         {
-          if((0x01 & u32counter) != 0x00) 
+          if((0x01 & u32Counter) != 0x00) 
         {
             RA0 = 0x01;
         }
@@ -112,7 +112,7 @@ void UserAppRun(void)
         {
             RA0 = 0x00;
         }
-        if((0x02 & u32counter) != 0x00)
+        if((0x02 & u32Counter) != 0x00)
         {
             RA1 = 0x01;
         }
@@ -120,7 +120,7 @@ void UserAppRun(void)
         {
             RA1 = 0x00;
         }
-         if((0x04 & u32counter) != 0x00)
+         if((0x04 & u32Counter) != 0x00)
         {
             RA2 = 0x01;
         }
@@ -128,7 +128,7 @@ void UserAppRun(void)
         {
             RA2 = 0x00;
         }
-         if((0x08 & u32counter) != 0x00)
+         if((0x08 & u32Counter) != 0x00)
         {
             RA3 = 0x01;
         }
@@ -136,7 +136,7 @@ void UserAppRun(void)
         {
             RA3 = 0x00;
         }
-         if((0x10 & u32counter) != 0x00)
+         if((0x10 & u32Counter) != 0x00)
         {
             RA4 = 0x01;
         }
@@ -144,7 +144,7 @@ void UserAppRun(void)
         {
             RA4 = 0x00;
         }
-         if((0x20 & u32counter) != 0x00)
+         if((0x20 & u32Counter) != 0x00)
         {
             RA5 = 0x01;
         }
