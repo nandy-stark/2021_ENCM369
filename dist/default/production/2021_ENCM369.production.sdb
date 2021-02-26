@@ -52,6 +52,18 @@
 [v _TRISA TRISA `VEuc  1 e 1 @1222 ]
 "45902
 [v _TRISB TRISB `VEuc  1 e 1 @1223 ]
+"53732
+[v _RA0 RA0 `VEb  1 e 0 @9840 ]
+"53756
+[v _RA1 RA1 `VEb  1 e 0 @9841 ]
+"53780
+[v _RA2 RA2 `VEb  1 e 0 @9842 ]
+"53804
+[v _RA3 RA3 `VEb  1 e 0 @9843 ]
+"53828
+[v _RA4 RA4 `VEb  1 e 0 @9844 ]
+"53852
+[v _RA5 RA5 `VEb  1 e 0 @9845 ]
 "53900
 [v _RA7 RA7 `VEb  1 e 0 @9847 ]
 "54044
@@ -73,8 +85,12 @@
 [v _UserAppRun UserAppRun `(v  1 e 1 0 ]
 {
 "98
-[v UserAppRun@u32counter u32counter `ul  1 a 4 2 ]
-"116
+[v UserAppRun@u32counter u32counter `ul  1 a 4 4 ]
+"100
+[v UserAppRun@u8Button u8Button `uc  1 a 1 3 ]
+"99
+[v UserAppRun@u8ButtonLastState u8ButtonLastState `uc  1 a 1 2 ]
+"160
 } 0
 "76
 [v _UserAppInitialize UserAppInitialize `(v  1 e 1 0 ]

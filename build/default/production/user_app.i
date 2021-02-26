@@ -27316,20 +27316,64 @@ void UserAppInitialize(void)
 void UserAppRun(void)
 {
      u32 u32counter ;
+     u8 u8ButtonLastState = RB5;
+     u8 u8Button;
 
-     for(u32counter=0;u32counter<128;u32counter++)
+     for(u32counter=0x00 ; u32counter<=0x40 ; u32counter+0x01)
     {
-         _delay((unsigned long)((100)*(64000000/4000.0)));
-         if(RB5==1)
-         {
-          LATA= 128 + u32counter;
-            _delay((unsigned long)((250)*(64000000/4000.0)));
-         }
-
-            if(u32counter>=128)
+        u8Button = RB5;
+        if(u8Button == 0x00 && u8ButtonLastState == 0x01){
+       if((0x01 & u32counter) != 0x00)
         {
-            u32counter=0;
+            RA0=0x01;
         }
+        else
+        {
+            RA0=0x00;
+        }
+        if((0x02 & u32counter) != 0x00)
+        {
+            RA1=0x01;
+        }
+        else
+        {
+            RA1=0x00;
+        }
+         if((0x04 & u32counter) != 0x00)
+        {
+            RA2=0x01;
+        }
+        else
+        {
+            RA2=0x00;
+        }
+         if((0x08 & u32counter) != 0x00)
+        {
+            RA3=0x01;
+        }
+        else
+        {
+            RA3=0x00;
+        }
+         if((0x10 & u32counter) != 0x00)
+        {
+            RA4=0x01;
+        }
+        else
+        {
+            RA4=0x00;
+        }
+         if((0x20 & u32counter) != 0x00)
+        {
+            RA5=0x01;
+        }
+        else
+        {
+            RA5=0x00;
+        }
+        _delay((unsigned long)((250)*(64000000/4000.0)));
+    }
+         u8ButtonLastState = u8Button;
     }
 
 
