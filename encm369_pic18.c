@@ -89,27 +89,20 @@ Promises:
 
 void GpioSetup(void)
 {
-    TRISA=0;
-    LATA= 0;
-    ANSELA=0;
-    RA7=1;
-    
-    
+    TRISA = 0x00;
+    ANSELA = 0x00;
+    LATA = 0x80;
   
 } /* end GpioSetup() */
 
 
 /*!---------------------------------------------------------------------------------------------------------------------
 @fn  void SysTickSetup(void)
-
 @brief Initializes the 1ms and 1s System Ticks off the core timer.
-
 Requires:
 - NVIC is setup and SysTick handler is installed
-
 Promises:
 - Both global system timers are reset and the SysTick core timer is configured for 1ms intervals
-
 */
 void SysTickSetup(void)
 {
@@ -117,6 +110,7 @@ void SysTickSetup(void)
   G_u32SystemTime1s  = 0;   
   
 } /* end SysTickSetup() */
+
 
 
 

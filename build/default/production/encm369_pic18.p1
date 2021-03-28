@@ -2,15 +2,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "45840 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 45840: extern volatile unsigned char TRISA __attribute__((address(0x4C6)));
 [v _TRISA `Vuc ~T0 @X0 0 e@1222 ]
-"45585
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 45585: extern volatile unsigned char LATA __attribute__((address(0x4BE)));
-[v _LATA `Vuc ~T0 @X0 0 e@1214 ]
 "37918
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 37918: extern volatile unsigned char ANSELA __attribute__((address(0x400)));
 [v _ANSELA `Vuc ~T0 @X0 0 e@1024 ]
-"53900
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 53900: extern volatile __bit RA7 __attribute__((address(0x2677)));
-[v _RA7 `Vb ~T0 @X0 0 e@9847 ]
+"45585
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 45585: extern volatile unsigned char LATA __attribute__((address(0x4BE)));
+[v _LATA `Vuc ~T0 @X0 0 e@1214 ]
 "37 encm369_pic18.c
 [; ;encm369_pic18.c: 37: extern volatile u32 G_u32SystemTime1ms;
 [v _G_u32SystemTime1ms `Vul ~T0 @X0 0 e ]
@@ -2559,48 +2556,45 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _GpioSetup ]
 [f ]
 "92
-[; ;encm369_pic18.c: 92:     TRISA=0;
+[; ;encm369_pic18.c: 92:     TRISA = 0x00;
 [e = _TRISA -> -> 0 `i `uc ]
 "93
-[; ;encm369_pic18.c: 93:     LATA= 0;
-[e = _LATA -> -> 0 `i `uc ]
-"94
-[; ;encm369_pic18.c: 94:     ANSELA=0;
+[; ;encm369_pic18.c: 93:     ANSELA = 0x00;
 [e = _ANSELA -> -> 0 `i `uc ]
-"95
-[; ;encm369_pic18.c: 95:     RA7=1;
-[e = _RA7 -> -> 1 `i `b ]
-"99
-[; ;encm369_pic18.c: 99: }
+"94
+[; ;encm369_pic18.c: 94:     LATA = 0x80;
+[e = _LATA -> -> 128 `i `uc ]
+"96
+[; ;encm369_pic18.c: 96: }
 [e :UE 2273 ]
 }
-"114
-[; ;encm369_pic18.c: 114: void SysTickSetup(void)
+"107
+[; ;encm369_pic18.c: 107: void SysTickSetup(void)
 [v _SysTickSetup `(v ~T0 @X0 1 ef ]
-"115
-[; ;encm369_pic18.c: 115: {
+"108
+[; ;encm369_pic18.c: 108: {
 {
 [e :U _SysTickSetup ]
 [f ]
-"116
-[; ;encm369_pic18.c: 116:   G_u32SystemTime1ms = 0;
+"109
+[; ;encm369_pic18.c: 109:   G_u32SystemTime1ms = 0;
 [e = _G_u32SystemTime1ms -> -> -> 0 `i `l `ul ]
-"117
-[; ;encm369_pic18.c: 117:   G_u32SystemTime1s = 0;
+"110
+[; ;encm369_pic18.c: 110:   G_u32SystemTime1s = 0;
 [e = _G_u32SystemTime1s -> -> -> 0 `i `l `ul ]
-"119
-[; ;encm369_pic18.c: 119: }
+"112
+[; ;encm369_pic18.c: 112: }
 [e :UE 2274 ]
 }
-"136
-[; ;encm369_pic18.c: 136: void SystemSleep(void)
+"130
+[; ;encm369_pic18.c: 130: void SystemSleep(void)
 [v _SystemSleep `(v ~T0 @X0 1 ef ]
-"137
-[; ;encm369_pic18.c: 137: {
+"131
+[; ;encm369_pic18.c: 131: {
 {
 [e :U _SystemSleep ]
 [f ]
-"139
-[; ;encm369_pic18.c: 139: }
+"133
+[; ;encm369_pic18.c: 133: }
 [e :UE 2275 ]
 }
