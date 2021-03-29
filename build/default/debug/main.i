@@ -27338,9 +27338,9 @@ void main(void)
                    ;
     SystemSleep();
 
-    TimeXus(65535);
+   TimeXus(65535);
+    while((PIR3 & 0x80) != 0x80);
 
-    while((PIR3 & 0x80) != 0x80){}
 
                   ;
 
