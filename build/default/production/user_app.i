@@ -27321,29 +27321,25 @@ void UserAppInitialize(void)
 # 95 "user_app.c"
 void UserAppRun(void)
 {
-    static u16 u16counter = 0;
-   u16counter= u16counter+1;
-
-   static int index = 0;
-   u8 au8Pattern[] ={0x01,0x02, 0x04, 0x08, 0x10, 0x20};
-
-   if (u16counter >= 200)
-   {
-
-      u16counter =0;
-      LATA = 0x80;
-      LATA = LATA | au8Pattern[index];
-
-      index = index +1;
-    }
-
-   if(index == 6)
-   {
-      index=0;
-   }
-
+static _Bool B_Up = 1;
+if(DAC1DATL == 255)
+{
+    B_Up = 0;
 }
-# 133 "user_app.c"
+if(DAC1DATL == 0)
+{
+    B_Up = 1;
+}
+if(B_Up)
+{
+    DAC1DATL++;
+}
+else
+{
+    DAC1DATL--;
+}
+}
+# 129 "user_app.c"
 void TimeXus(u16 u16usecs)
 {
     T0CON0 &= 0x7F;
