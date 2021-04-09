@@ -1,4 +1,4 @@
-# 1 "encm369_pic18.c"
+# 1 "interrupts.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/yrsre/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "encm369_pic18.c" 2
-# 24 "encm369_pic18.c"
+# 1 "interrupts.c" 2
+# 26 "interrupts.c"
 # 1 "./configuration.h" 1
 # 30 "./configuration.h"
 #pragma config FEXTOSC = OFF
@@ -27354,56 +27354,98 @@ void TimeXus(u16 u16TimeXus_);
 void UserAppInitialize(void);
 void UserAppRun(void);
 # 103 "./configuration.h" 2
-# 24 "encm369_pic18.c" 2
-
-# 1 "./pic18f27q43.h" 1
-# 25 "encm369_pic18.c" 2
-# 38 "encm369_pic18.c"
+# 27 "interrupts.c" 2
+# 37 "interrupts.c"
 extern volatile u32 G_u32SystemTime1ms;
 extern volatile u32 G_u32SystemTime1s;
 extern volatile u8 G_u8SystemFlags;
-# 71 "encm369_pic18.c"
-void ClockSetup(void)
+
+extern volatile u8 G_u8UserAppFlags;
+extern volatile u8 G_u8UserAppTimePeriodHi;
+extern volatile u8 G_u8UserAppTimePeriodLo;
+
+extern u8 G_au8UserAppsinTable[];
+# 74 "interrupts.c"
+void InterruptSetup(void)
 {
+
+  INTCON0bits.IPEN = 1;
+
+
+  INTCON0bits.GIEH = 1;
+  INTCON0bits.GIEL = 1;
+
+}
+
+
+void __attribute__((picinterrupt(("irq(0), high_priority")))) SW_ISR(void)
+{
+  PIR0bits.SWIF = 0;
+
+}
+
+
+void __attribute__((picinterrupt(("irq(default), low_priority")))) DEFAULT_ISR(void)
+{
+
+
+
+
+  static u32 u32UnhandledCounter = 0;
+
+  u32UnhandledCounter++;
+
+
 
 
 }
-# 90 "encm369_pic18.c"
-void GpioSetup(void)
+
+
+
+
+
+void __attribute__((picinterrupt(("irq(28), high_priority")))) TMR1_ISR(void)
 {
-
-  ANSELA = 0x00;
-  TRISA = 0x00;
+  static u8 u8Index = 0;
 
 
-  DAC1CON = 0xA0;
-  DAC1DATL = 0;
+  TMR1H = G_u8UserAppTimePeriodHi;
+  TMR1L = G_u8UserAppTimePeriodLo;
+
+
+
+
+
+
+  DAC1DATL = G_au8UserAppsinTable[u8Index];
+  u8Index += 4;
+
+
+
+
+
+
+
+  PIR3bits.TMR1IF = 0;
+
+
+  if( !(G_u8UserAppFlags & (u8)0x01) )
+  {
+    PIE3bits.TMR1IE = 0;
+    T1CONbits.ON = 0;
+  }
 
 }
-# 115 "encm369_pic18.c"
-void SysTickSetup(void)
+
+
+
+void __attribute__((picinterrupt(("irq(27), high_priority")))) TMR2_ISR(void)
 {
-  G_u32SystemTime1ms = 0;
-  G_u32SystemTime1s = 0;
 
-
-
-
-
-
-
-  T2PR = 125;
-  T2CLKCON = 0x01;
   PIR3bits.TMR2IF = 0;
-  T2CON = 0xF0;
+  G_u8SystemFlags &= ~(u8)0x40;
 
-  PIE3bits.TMR2IE = 1;
 
-}
-# 150 "encm369_pic18.c"
-void SystemSleep(void)
-{
-  G_u8SystemFlags |= (u8)0x40;
-  while(G_u8SystemFlags & (u8)0x40);
-
+  G_u32SystemTime1ms++;
+# 163 "interrupts.c"
 }
